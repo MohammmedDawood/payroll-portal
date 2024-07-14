@@ -20,7 +20,7 @@ function MainLayout() {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p='md'>
-        <Navbar />
+        <Navbar opened={opened} toggle={toggle} />
       </AppShell.Navbar>
       <AppShell.Main>
         {/* Render the main content area */}

@@ -1,5 +1,11 @@
+import Employees from "../../../modules/clients/employees";
+
 function EmployeesPage() {
-  return <div>EmployeesPage</div>;
+  return (
+    <>
+      <Employees />
+    </>
+  );
 }
 
 export default EmployeesPage;

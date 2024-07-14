@@ -1,39 +1,63 @@
-import { Box, NavLink } from "@mantine/core";
-import { useLocation } from "react-router-dom";
+import { Box, Button, NavLink } from "@mantine/core";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useNavBarRoutes } from "../../hooks/useNavBarRoutes";
+import { useDispatch } from "react-redux";
+import { useRoutes } from "../../hooks/useRoutes";
+import { logout } from "../../redux/slices/authSlice";
 
-export default function Navbar() {
+export interface NavbarProps {
+  opened: boolean;
+  toggle: () => void;
+}
+
+export default function Navbar({ opened, toggle }: NavbarProps) {
+  const closeSidebar = () => {
+    if (opened) {
+      toggle();
+    }
+  };
   //use params to get the active index
+  /* --------------------------------- Hooks --------------------------------- */
   const { NAVBARROUTES } = useNavBarRoutes();
-  console.log(NAVBARROUTES);
-
   const { pathname } = useLocation();
-  console.log(pathname);
-
-  // function isLinkActive(paths: string | string[]): boolean {
-  //   if (Array.isArray(paths)) {
-  //     return paths.some((path) => isLinkActive(path));
-  //   }
-  //   return matchPath(paths, pathname) !== null ? true : false;
-  // }
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { ROUTES } = useRoutes();
 
   const items = NAVBARROUTES.map((item) => (
     <NavLink
-      // href='#required-for-focus'
-      // key={item.label}
-      // active={index === active}
-      // label={item.label}
-      // description={item.description}
-      // leftSection={<item.icon size='1rem' stroke={1.5} />}
-      // onClick={() => setActive(index)}
-      href={item.to()}
       key={item.id}
       active={pathname === item.path}
       label={item.label}
       description={item.description}
       leftSection={item.iconSideNav}
+      onClick={() => {
+        // navigate to the path
+        navigate(item.path);
+        // close the sidebar
+        closeSidebar();
+      }}
     />
   ));
 
-  return <Box>{items}</Box>;
+  return (
+    <Box>
+      {/* items */}
+      {items}
+      {/* logout button */}
+      <Button
+        fullWidth
+        variant='outline'
+        color='red'
+        onClick={() => {
+          // logout the user
+          dispatch(logout());
+          // navigate to login page
+          navigate(ROUTES.login.to());
+        }}
+      >
+        Logout
+      </Button>
+    </Box>
+  );
 }

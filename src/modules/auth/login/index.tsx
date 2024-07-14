@@ -18,8 +18,8 @@ import { useRoutes } from "../../../hooks/useRoutes";
 function Login() {
   const form = useForm({
     initialValues: {
-      username: "",
-      password: "",
+      username: "asd@asd.asd",
+      password: "123456",
     },
     validate: {
       username: (value) =>

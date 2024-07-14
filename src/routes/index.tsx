@@ -1,9 +1,9 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
-// import NotFoundPage from "../pages/errors/notfound";
+import { Route, Routes } from "react-router-dom";
+import NotFoundPage from "../pages/errors/NotFound";
 import LayoutUnauthorised from "../Layout/LayoutUnauthorised";
 import MainLayoutAuthorised from "../Layout/MainLayoutAuthorised";
-import ProtectedRoute from "../components/auth/ProtectedRoute";
+import ProtectedRoute from "../modules/auth/ProtectedRoute";
 import { useRoutes } from "../hooks/useRoutes";
 
 const Layout: React.FC = () => {
@@ -12,9 +12,6 @@ const Layout: React.FC = () => {
   //TODO: Enhance Routes
   return (
     <Routes>
-      {/* Redirect root to login */}
-      <Route path='/' element={<Navigate to='/auth/login' replace />} />
-
       {/* Authorized Layout Routes */}
       <Route element={<MainLayoutAuthorised />}>
         <Route
@@ -29,6 +26,10 @@ const Layout: React.FC = () => {
             <ProtectedRoute>{ROUTES.employees.component}</ProtectedRoute>
           }
         />
+        <Route
+          path={ROUTES.salaries.path}
+          element={<ProtectedRoute>{ROUTES.salaries.component}</ProtectedRoute>}
+        />
       </Route>
 
       {/* Unauthorised Layout Routes */}
@@ -38,7 +39,7 @@ const Layout: React.FC = () => {
       </Route>
 
       {/* Catch-All Route for Not Found Page */}
-      {/* <Route path='*' element={<NotFoundPage />} /> */}
+      <Route path='*' element={<NotFoundPage />} />
     </Routes>
   );
 };
