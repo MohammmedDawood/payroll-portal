@@ -1,11 +1,8 @@
-import { AppShell, Box, Burger, Grid, Group } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { AppShell, Group } from "@mantine/core";
 import { Outlet } from "react-router-dom";
 import { ActionToggle } from "../ActionToggle";
 
 function MainLayout() {
-  const [opened, { toggle }] = useDisclosure();
-
   return (
     <AppShell header={{ height: 60 }} footer={{ height: 60 }} padding='md'>
       <AppShell.Header>

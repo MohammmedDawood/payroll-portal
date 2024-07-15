@@ -1,8 +1,7 @@
-import { ActionIcon, AppShell, Burger, Group } from "@mantine/core";
+import { AppShell, Burger, Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Navbar from "../Navbar";
 import { Outlet } from "react-router-dom";
-import { IconMoon, IconSun } from "@tabler/icons-react";
 import { ActionToggle } from "../ActionToggle";
 
 function MainLayout() {
