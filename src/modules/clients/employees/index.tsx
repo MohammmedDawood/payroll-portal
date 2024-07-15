@@ -195,6 +195,7 @@ function Employees() {
                       onClick={() => {
                         console.log("edit", record);
                       }}
+                      variant='light'
                     >
                       <IconEdit />
                     </ActionIcon>
@@ -207,6 +208,7 @@ function Employees() {
                       onClick={() => {
                         console.log("view");
                       }}
+                      variant='light'
                     >
                       <IconEye />
                     </ActionIcon>
