@@ -2,7 +2,8 @@ import { AppShell, Burger, Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Navbar from "../Navbar";
 import { Outlet } from "react-router-dom";
-import { ActionToggle } from "../ActionToggle";
+import ActionThemeToggle from "../ActionThemeToggle";
+import ActionLanguageToggle from "Layout/ActionLanguageToggle";
 
 function MainLayout() {
   const [opened, { toggle }] = useDisclosure();
@@ -28,10 +29,11 @@ function MainLayout() {
               hiddenFrom='sm'
               size='sm'
             />
-            Payroll Assessment
+            Mohammed Dawood
           </Group>
           <Group align='center' justify='center' gap='md'>
-            <ActionToggle />
+            <ActionThemeToggle />
+            <ActionLanguageToggle />
           </Group>
         </Group>
       </AppShell.Header>

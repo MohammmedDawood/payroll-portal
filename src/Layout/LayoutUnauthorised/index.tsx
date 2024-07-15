@@ -1,6 +1,7 @@
 import { AppShell, Group } from "@mantine/core";
 import { Outlet } from "react-router-dom";
-import { ActionToggle } from "../ActionToggle";
+import ActionThemeToggle from "../ActionThemeToggle";
+import ActionLanguageToggle from "../ActionLanguageToggle";
 
 function MainLayout() {
   return (
@@ -16,7 +17,8 @@ function MainLayout() {
             Payroll Assessment
           </Group>
           <Group align='center' justify='center' gap='md'>
-            <ActionToggle />
+            <ActionThemeToggle />
+            <ActionLanguageToggle />
           </Group>
         </Group>
       </AppShell.Header>

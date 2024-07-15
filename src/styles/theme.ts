@@ -3,63 +3,25 @@ import { createTheme, rem } from "@mantine/core";
 export const theme: ReturnType<typeof createTheme> = createTheme({
   fontFamily: "Space Grotesk, sans-serif",
   colors: {
-    // Add your color
-    deepBlue: [
-      "#eef3ff",
-      "#dce4f5",
-      "#b9c7e2",
-      "#94a8d0",
-      "#748dc1",
-      "#5f7cb8",
-      "#5474b4",
-      "#44639f",
-      "#39588f",
-      "#2d4b81",
-    ],
-    // or replace default theme color
-    blue: [
-      "#eef3ff",
-      "#dee2f2",
-      "#bdc2de",
-      "#98a0ca",
-      "#7a84ba",
-      "#6672b0",
-      "#5c68ac",
-      "#4c5897",
-      "#424e88",
-      "#364379",
-    ],
-
-    emerald: [
-      "#f0fdf5",
-      "#dcfce8",
-      "#bbf7d1",
-      "#86efad",
-      "#4ade80",
-      "#22c55e",
-      "#16a34a",
-      "#15803c",
-      "#166533",
-      "#14532b",
-      "#052e14",
-    ],
-
-    red: [
-      "#f9f6f6",
-      "#f3ecec",
-      "#e7dada",
-      "#d7bfbf",
-      "#c4a5a5",
-      "#b68f8f",
-      "#ae8585",
-      "#9b6f6f",
-      "#8f5f5f",
-      "#7f4f4f",
+    // Add your colors here
+    // crete theme from #F62615
+    reddish: [
+      "#F62615",
+      "#FF7F50",
+      "#FF6347",
+      "#FF4500",
+      "#FF0000",
+      "#DC143C",
+      "#B22222",
+      "#8B0000",
+      "#800000",
+      "#8B4513",
     ],
   },
 
-  primaryColor: "red",
+  primaryColor: "reddish",
   defaultRadius: "md",
+  autoContrast: true,
 
   shadows: {
     md: "1px 1px 3px rgba(0, 0, 0, .25)",

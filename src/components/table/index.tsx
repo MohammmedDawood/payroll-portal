@@ -36,7 +36,7 @@ export default function Table<
   recordsPerPageOptions,
   onPageChange,
   onRecordsPerPageChange,
-  height = "75vh",
+  height = "100%",
   noRecordsText,
   className,
   paginationColor,
@@ -61,16 +61,17 @@ export default function Table<
       <DataTable
         {...rest}
         withTableBorder
-        shadow='xl'
+        shadow='md'
         withColumnBorders
-        horizontalSpacing='xs'
+        horizontalSpacing='md'
         verticalAlign='center'
         striped
         columns={tableColumns}
         textSelectionDisabled={textSelectionDisabled}
         highlightOnHover
         height={height}
-        borderRadius={customModule ? borderRadius : "16px"}
+        borderRadius='md'
+        fz='sm'
         verticalSpacing={verticalSpacing}
         page={page as number}
         totalRecords={totalRecords}

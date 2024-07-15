@@ -3,6 +3,7 @@ import Table from "../../../components/table";
 import { IconEdit, IconEye } from "@tabler/icons-react";
 import { useIntl } from "react-intl";
 import { EmployeesWrapper } from "./styles";
+import Header from "./components/sectionHeader";
 
 function Employees() {
   const EmployeesList = [
@@ -132,6 +133,7 @@ function Employees() {
 
   return (
     <EmployeesWrapper>
+      <Header />
       <Table
         records={
           EmployeesList as {

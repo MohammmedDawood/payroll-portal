@@ -28,6 +28,8 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
 
+    "baseUrl": "./src",
+
     /* Extra */
     "noImplicitAny": true,
     "allowJs": false,

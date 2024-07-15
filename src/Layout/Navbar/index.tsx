@@ -1,9 +1,10 @@
-import { Box, Button, NavLink } from "@mantine/core";
+import { Box, Button, Group, NavLink } from "@mantine/core";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useNavBarRoutes } from "../../hooks/useNavBarRoutes";
 import { useDispatch } from "react-redux";
 import { useRoutes } from "../../hooks/useRoutes";
 import { logout } from "../../redux/slices/authSlice";
+import { NavBarWrapper } from "./styles";
 
 export interface NavbarProps {
   opened: boolean;
@@ -41,9 +42,11 @@ export default function Navbar({ opened, toggle }: NavbarProps) {
   ));
 
   return (
-    <Box>
-      {/* items */}
-      {items}
+    <NavBarWrapper>
+      <Group>
+        {/* items */}
+        {items}
+      </Group>
       {/* logout button */}
       <Button
         fullWidth
@@ -58,6 +61,6 @@ export default function Navbar({ opened, toggle }: NavbarProps) {
       >
         Logout
       </Button>
-    </Box>
+    </NavBarWrapper>
   );
 }
