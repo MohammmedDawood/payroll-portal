@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import NotFoundPage from "../pages/errors/NotFound";
 import LayoutUnauthorised from "../Layout/LayoutUnauthorised";
 import MainLayoutAuthorised from "../Layout/MainLayoutAuthorised";
@@ -12,6 +12,11 @@ const Layout: React.FC = () => {
   //TODO: Enhance Routes
   return (
     <Routes>
+      <Route
+        element={<Navigate to={ROUTES.dashboard.to()} replace />}
+        path='/'
+      />
+
       {/* Authorized Layout Routes */}
       <Route element={<MainLayoutAuthorised />}>
         <Route

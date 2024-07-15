@@ -4,9 +4,9 @@ import {
   DataTableProps,
   DataTableSortStatus,
 } from "mantine-datatable";
-import { ModuleWrapper, TableHead, TableWrapper } from "./styles";
 import { ReactNode, useMemo } from "react";
 import { useIntl } from "react-intl";
+import { TableWrapper } from "./styles";
 
 type TProps = {
   textSelectionDisabled?: boolean;
@@ -23,20 +23,20 @@ export default function Table<
   T extends object & { isRecordActionsHidden?: boolean }
 >({
   columns,
-  borderRadius = "0 0 16px 16px",
+  borderRadius = "16px",
   verticalSpacing = "md",
   withBorder = true,
   sortStatus,
   selectedRecords,
   customLoader,
   emptyState,
-  totalRecords,
+  totalRecords = 10,
   page,
   recordsPerPage,
   recordsPerPageOptions,
   onPageChange,
   onRecordsPerPageChange,
-  height = 600,
+  height = "75vh",
   noRecordsText,
   className,
   paginationColor,
@@ -51,26 +51,25 @@ export default function Table<
     return columns.map((column) => ({
       ...column,
       title:
-        typeof column.title === "string" ? (
-          <TableHead>{column.title}</TableHead>
-        ) : (
-          column.title
-        ),
+        typeof column.title === "string" ? <>{column.title}</> : column.title,
     })) as DataTableColumn<T>[];
   }, [columns]);
 
   return (
-    <TableWrapper className={className}>
-      {customModule && <ModuleWrapper>{customModule}</ModuleWrapper>}
+    <TableWrapper>
+      {customModule && <>{customModule}</>}
       <DataTable
         {...rest}
+        withTableBorder
+        shadow='xl'
+        withColumnBorders
+        horizontalSpacing='xs'
+        verticalAlign='center'
         striped
         columns={tableColumns}
         textSelectionDisabled={textSelectionDisabled}
         highlightOnHover
-        shadow='xs'
         height={height}
-        withTableBorder={withBorder ?? true}
         borderRadius={customModule ? borderRadius : "16px"}
         verticalSpacing={verticalSpacing}
         page={page as number}

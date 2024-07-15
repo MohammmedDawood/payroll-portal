@@ -1,7 +1,9 @@
-import { AppShell, Burger, Group } from "@mantine/core";
+import { ActionIcon, AppShell, Burger, Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Navbar from "../Navbar";
 import { Outlet } from "react-router-dom";
+import { IconMoon, IconSun } from "@tabler/icons-react";
+import { ActionToggle } from "../ActionToggle";
 
 function MainLayout() {
   const [opened, { toggle }] = useDisclosure();
@@ -14,9 +16,24 @@ function MainLayout() {
       padding='md'
     >
       <AppShell.Header>
-        <Group h='100%' px='md'>
-          <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
-          Payroll Assessment
+        <Group h='100%' px='md' align='center' justify='space-between' w='100%'>
+          <Group
+            align='center'
+            justify='center'
+            gap='md'
+            style={{ fontSize: "1.5rem", fontWeight: "bold" }}
+          >
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              hiddenFrom='sm'
+              size='sm'
+            />
+            Payroll Assessment
+          </Group>
+          <Group align='center' justify='center' gap='md'>
+            <ActionToggle />
+          </Group>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p='md'>
@@ -36,26 +53,5 @@ function MainLayout() {
     </AppShell>
   );
 }
-
-// import React from "react";
-// import { Outlet } from "react-router-dom";
-// import { Container, Grid } from "@mantine/core";
-// import { Sidebar } from "../Sidebar"; // Import the Sidebar component
-
-// const MainLayout: React.FC = () => {
-//   return (
-//     <Container fluid>
-//       <Grid>
-//         <Grid.Col span={3} style={{ padding: 0 }}>
-//           <Sidebar /> {/* Render Sidebar on the left */}
-//         </Grid.Col>
-//         <Grid.Col span={9} style={{ padding: "1rem" }}>
-//           {/* Render the main content area */}
-//           <Outlet />
-//         </Grid.Col>
-//       </Grid>
-//     </Container>
-//   );
-// };
 
 export default MainLayout;

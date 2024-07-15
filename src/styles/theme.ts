@@ -43,14 +43,27 @@ export const theme: ReturnType<typeof createTheme> = createTheme({
       "#14532b",
       "#052e14",
     ],
+
+    red: [
+      "#f9f6f6",
+      "#f3ecec",
+      "#e7dada",
+      "#d7bfbf",
+      "#c4a5a5",
+      "#b68f8f",
+      "#ae8585",
+      "#9b6f6f",
+      "#8f5f5f",
+      "#7f4f4f",
+    ],
   },
 
-  primaryColor: "emerald",
+  primaryColor: "red",
   defaultRadius: "md",
 
   shadows: {
     md: "1px 1px 3px rgba(0, 0, 0, .25)",
-    xl: "5px 5px 3px rgba(0, 0, 0, .25)",
+    xl: "5px 5px 5px 5px rgba(0, 0, 0, .25)",
   },
 
   headings: {
