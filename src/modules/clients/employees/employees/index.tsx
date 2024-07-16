@@ -1,12 +1,28 @@
-import { ActionIcon, Group, Tooltip } from "@mantine/core";
-import Table from "../../../components/table";
-import { IconEdit, IconEye } from "@tabler/icons-react";
+import { ActionIcon, Button, Group, Tooltip } from "@mantine/core";
+import Table from "../../../../components/table";
+import { IconEdit, IconEye, IconTrash } from "@tabler/icons-react";
 import { useIntl } from "react-intl";
 import { EmployeesWrapper } from "./styles";
 import Header from "./components/sectionHeader";
+import { useState } from "react";
+import AlertPopup from "components/alertPopup";
+import { toast } from "react-toastify";
+
+export interface IEmployee {
+  id: number;
+  staff_id: string;
+  joining_date: string;
+  name: string;
+  email: string;
+  phone: string;
+  role: string[];
+  basic_salary: string;
+  salary_allowance: string;
+  status: string;
+}
 
 function Employees() {
-  const EmployeesList = [
+  const EmployeesList: IEmployee[] = [
     {
       id: 1,
       staff_id: "STF-001",
@@ -14,7 +30,7 @@ function Employees() {
       name: "John Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Admin",
+      role: ["Admin"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Active",
@@ -26,7 +42,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -38,7 +54,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -50,7 +66,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -62,7 +78,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -74,7 +90,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -86,7 +102,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -98,7 +114,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -110,7 +126,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -122,7 +138,7 @@ function Employees() {
       name: "Jane Doe",
       email: "jon@gmail.com",
       phone: "08012345678",
-      role: "Employee",
+      role: ["Employee"],
       basic_salary: "$17,500",
       salary_allowance: "$2,000",
       status: "Inactive",
@@ -130,25 +146,53 @@ function Employees() {
   ];
 
   const { formatMessage } = useIntl();
+  const [showDeleteAlert, setShowDeleteAlert] = useState<boolean>(false);
+
+  const deleteRecords = async () => {
+    console.log("deleteRecords");
+    toast.success(formatMessage({ id: "employee/s_deleted_successfully" }));
+    setShowDeleteAlert(false);
+  };
 
   return (
     <EmployeesWrapper>
+      <AlertPopup
+        onClose={() => setShowDeleteAlert(!showDeleteAlert)}
+        opened={showDeleteAlert}
+        title={formatMessage({ id: "delete" })}
+        description={formatMessage({
+          id: "are_you_sure_you_want_to_delete_these_employee/s",
+        })}
+        Footer={
+          <>
+            <Button
+              variant='filled'
+              radius={"lg"}
+              size='xl'
+              onClick={() => {
+                setShowDeleteAlert(false);
+                deleteRecords();
+              }}
+            >
+              {formatMessage({ id: "yes" })}
+            </Button>
+
+            <Button
+              variant='outline'
+              radius={"lg"}
+              size='xl'
+              onClick={() => {
+                setShowDeleteAlert(false);
+              }}
+            >
+              {formatMessage({ id: "no" })}
+            </Button>
+          </>
+        }
+      />
       <Header />
       <Table
-        records={
-          EmployeesList as {
-            id: number;
-            staff_id: string;
-            joining_date: string;
-            name: string;
-            email: string;
-            phone: string;
-            role: string;
-            basic_salary: string;
-            salary_allowance: string;
-            status: string;
-          }[]
-        }
+        records={EmployeesList as IEmployee[]}
         highlightOnHover
         columns={[
           {
@@ -189,28 +233,41 @@ function Employees() {
             render: (record) => (
               <Group>
                 {
-                  <Tooltip label={formatMessage({ id: "edit" })}>
-                    <ActionIcon
-                      className='ActionIcon'
-                      onClick={() => {
-                        console.log("edit", record);
-                      }}
-                      variant='light'
-                    >
-                      <IconEdit />
-                    </ActionIcon>
-                  </Tooltip>
-                }
-                {
                   <Tooltip label={formatMessage({ id: "view" })}>
                     <ActionIcon
                       className='ActionIcon'
                       onClick={() => {
                         console.log("view");
                       }}
-                      variant='light'
+                      variant='transparent'
                     >
                       <IconEye />
+                    </ActionIcon>
+                  </Tooltip>
+                }
+                {
+                  <Tooltip label={formatMessage({ id: "edit" })}>
+                    <ActionIcon
+                      className='ActionIcon'
+                      onClick={() => {
+                        console.log("edit", record);
+                      }}
+                      variant='transparent'
+                    >
+                      <IconEdit />
+                    </ActionIcon>
+                  </Tooltip>
+                }
+                {
+                  <Tooltip label={formatMessage({ id: "delete" })}>
+                    <ActionIcon
+                      className='ActionIcon'
+                      onClick={() => {
+                        setShowDeleteAlert(true);
+                      }}
+                      variant='transparent'
+                    >
+                      <IconTrash />
                     </ActionIcon>
                   </Tooltip>
                 }

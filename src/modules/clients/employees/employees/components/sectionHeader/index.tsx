@@ -1,11 +1,10 @@
-import { ActionIcon, Grid, Group, Menu, Tooltip } from "@mantine/core";
-import { IconEdit, IconEye, IconPlus } from "@tabler/icons-react";
+import { Button, Grid } from "@mantine/core";
+import { IconPlus } from "@tabler/icons-react";
 import { useIntl } from "react-intl";
 import { HeaderWrapper } from "./styles";
-import { useRoutes } from "../../../../../hooks/useRoutes";
+import { useRoutes } from "hooks/useRoutes";
 import { useNavigate } from "react-router-dom";
-import SectionName from "../../../../../components/sectionName";
-import CustomButton from "../../../../../components/customButton";
+import SectionName from "components/sectionName";
 
 function Header() {
   const { formatMessage } = useIntl();
@@ -30,13 +29,14 @@ function Header() {
           }}
         >
           <div className='containerButtons'>
-            <CustomButton
-              withBG
-              label={formatMessage({ id: "add_employee" })}
-              customPadding='8px 24px'
-              withIcone
-              customIcon={<IconPlus />}
-            />
+            <Button
+              variant='filled'
+              rightSection={<IconPlus />}
+              radius={"xl"}
+              onClick={() => navigate(ROUTES.createEmployee.to())}
+            >
+              {formatMessage({ id: "add_employee" })}
+            </Button>
           </div>
         </Grid.Col>
       </Grid>

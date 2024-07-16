@@ -1,13 +1,15 @@
 import { useSelector } from "react-redux";
 import { MantineProvider } from "@mantine/core";
-import Layout from "./routes";
-import { RootState } from "./redux/store"; // Adjust the import path if necessary
+import Layout from "routes";
+import { RootState } from "redux/store"; // Adjust the import path if necessary
 import { theme } from "./styles/theme";
 import { messages } from "./translations";
 import { IntlProvider } from "react-intl";
-// import "react-toastify/dist/ReactToastify.css";
 // import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@mantine/core/styles.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "@mantine/dates/styles.css";
 
 function App() {
   /* ----------------------------- Redux Dispatch ---------------------------- */
@@ -19,6 +21,18 @@ function App() {
         locale={settings?.lang}
         messages={messages[settings?.lang as "ar" | "en"]}
       >
+        <ToastContainer
+          position={settings.lang === "ar" ? "top-left" : "top-right"}
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={settings.lang === "ar" ? true : false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme='colored'
+        />
         <MantineProvider
           theme={theme}
           defaultColorScheme={settings?.theme === "light" ? "light" : "dark"}

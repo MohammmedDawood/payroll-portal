@@ -29,7 +29,7 @@ function MainLayout() {
               hiddenFrom='sm'
               size='sm'
             />
-            Mohammed Dawood
+            M.Dawood
           </Group>
           <Group align='center' justify='center' gap='md'>
             <ActionThemeToggle />

@@ -1,4 +1,4 @@
-import Employees from "../../../modules/clients/employees";
+import Employees from "modules/clients/employees/employees";
 
 function EmployeesPage() {
   return (

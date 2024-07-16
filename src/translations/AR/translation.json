@@ -28,5 +28,12 @@
   "employees": "الموظفين",
   "add_employee": "إضافة موظف",
   "view": "عرض",
-  "edit": "تعديل"
+  "edit": "تعديل",
+  "are_you_sure_you_want_to_delete_these_employee/s": "هل أنت متأكد أنك تريد حذف هذا الموظف/هؤلاء الموظفين؟",
+  "yes": "نعم",
+  "no": "لا",
+  "delete": "حذف",
+  "employee/s_deleted_successfully": "تم حذف الموظف/الموظفين بنجاح",
+  "create_employee": "إنشاء موظف",
+  "employee_created_successfully": "تم إنشاء الموظف بنجاح"
 }

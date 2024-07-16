@@ -32,6 +32,12 @@ const Layout: React.FC = () => {
           }
         />
         <Route
+          path={ROUTES.createEmployee.path}
+          element={
+            <ProtectedRoute>{ROUTES.createEmployee.component}</ProtectedRoute>
+          }
+        />
+        <Route
           path={ROUTES.salaries.path}
           element={<ProtectedRoute>{ROUTES.salaries.component}</ProtectedRoute>}
         />

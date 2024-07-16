@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { useIntl } from "react-intl";
 
 // Clients Module
-import DashboardPage from "../pages/clients/dashboard";
-import EmployeesPage from "../pages/clients/employees";
-import SalariesPage from "../pages/clients/salaries";
+import DashboardPage from "pages/clients/dashboard";
+import EmployeesPage from "pages/clients/employees/employees";
+import SalariesPage from "pages/clients/salaries";
 import { IconCashBanknote, IconGauge, IconUsers } from "@tabler/icons-react";
 
 export interface INavBarRoute<T = any> {

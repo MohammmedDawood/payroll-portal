@@ -2,13 +2,16 @@ import { useMemo } from "react";
 import { useIntl } from "react-intl";
 
 // Auth Module
-import LoginPage from "../pages/auth/login";
-import RegisterPage from "../pages/auth/register";
+import LoginPage from "pages/auth/login";
+import RegisterPage from "pages/auth/register";
 
 // Clients Module
-import DashboardPage from "../pages/clients/dashboard";
-import EmployeesPage from "../pages/clients/employees";
-import SalariesPage from "../pages/clients/salaries";
+import DashboardPage from "pages/clients/dashboard";
+
+import EmployeesPage from "pages/clients/employees/employees";
+import CreateEmployeePage from "pages/clients/employees/createEmployee";
+
+import SalariesPage from "pages/clients/salaries";
 
 export interface IRoute<T = any> {
   component: JSX.Element;
@@ -29,7 +32,12 @@ export interface IRoutes {
 
   // Clients Module
   dashboard: IRoute;
+
+  // Employees Module
   employees: IRoute;
+  createEmployee: IRoute;
+
+  // Salaries Module
   salaries: IRoute;
 }
 
@@ -77,6 +85,22 @@ export function useRoutes() {
         title: () => formatMessage({ id: "employees" }),
         sidebarTitle: () => formatMessage({ id: "employees" }),
       },
+      createEmployee: {
+        component: <CreateEmployeePage />,
+        path: "/client/employees/create",
+        privileges: true,
+        to: () => "/client/employees/create",
+        fullTitle: () => [
+          {
+            name: formatMessage({ id: "employees" }),
+            link: "/client/employees",
+          },
+          { name: formatMessage({ id: "create_employee" }) },
+        ],
+        title: () => formatMessage({ id: "create_employee" }),
+        sidebarTitle: () => formatMessage({ id: "create_employee" }),
+      },
+
       salaries: {
         component: <SalariesPage />,
         path: "/client/salaries",

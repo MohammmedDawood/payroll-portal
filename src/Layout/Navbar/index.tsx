@@ -1,4 +1,4 @@
-import { Box, Button, Group, NavLink } from "@mantine/core";
+import { Button, Group, NavLink } from "@mantine/core";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useNavBarRoutes } from "../../hooks/useNavBarRoutes";
 import { useDispatch } from "react-redux";
