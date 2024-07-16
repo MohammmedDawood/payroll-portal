@@ -12,6 +12,7 @@ import EmployeesPage from "pages/clients/employees/employees";
 import CreateEmployeePage from "pages/clients/employees/createEmployee";
 
 import SalariesPage from "pages/clients/salaries";
+import TransactionsPage from "pages/clients/transactions";
 
 export interface IRoute<T = any> {
   component: JSX.Element;
@@ -39,6 +40,9 @@ export interface IRoutes {
 
   // Salaries Module
   salaries: IRoute;
+
+  // Transactions Module
+  transactions: IRoute;
 }
 
 export function useRoutes() {
@@ -99,6 +103,16 @@ export function useRoutes() {
         ],
         title: () => formatMessage({ id: "create_employee" }),
         sidebarTitle: () => formatMessage({ id: "create_employee" }),
+      },
+
+      transactions: {
+        component: <TransactionsPage />,
+        path: "/client/transactions",
+        privileges: true,
+        to: () => "/client/transactions",
+        fullTitle: () => [{ name: formatMessage({ id: "transactions" }) }],
+        title: () => formatMessage({ id: "transactions" }),
+        sidebarTitle: () => formatMessage({ id: "transactions" }),
       },
 
       salaries: {

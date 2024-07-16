@@ -1,6 +1,8 @@
 import { BarChart, DonutChart } from "@mantine/charts";
 import { Card, Grid, Group, Badge, Avatar, Text, Button } from "@mantine/core";
 import { IconWallet } from "@tabler/icons-react";
+import { useRoutes } from "hooks/useRoutes";
+import { useNavigate } from "react-router-dom";
 
 export const data = [
   { month: "January", WPS: 1200, Allownces: 900, Non_WPS: 200 },
@@ -18,6 +20,9 @@ export const gaugeData = [
 ];
 
 function Dashboard() {
+  const navigate = useNavigate();
+  const { ROUTES } = useRoutes();
+
   return (
     <Grid>
       <Grid.Col span={12}>
@@ -43,7 +48,8 @@ function Dashboard() {
                     size='xs'
                     radius='md'
                     onClick={() => {
-                      console.log("view transactions history");
+                      console.log("view_transactions_history");
+                      navigate(ROUTES.transactions.to());
                     }}
                   >
                     view transactions history

@@ -5,7 +5,13 @@ import { useIntl } from "react-intl";
 import DashboardPage from "pages/clients/dashboard";
 import EmployeesPage from "pages/clients/employees/employees";
 import SalariesPage from "pages/clients/salaries";
-import { IconCashBanknote, IconGauge, IconUsers } from "@tabler/icons-react";
+import TransactionsPage from "pages/clients/transactions";
+import {
+  IconCashBanknote,
+  IconGauge,
+  IconTransfer,
+  IconUsers,
+} from "@tabler/icons-react";
 
 export interface INavBarRoute<T = any> {
   id: string;
@@ -66,6 +72,19 @@ export function useNavBarRoutes() {
         fullTitle: () => [{ name: formatMessage({ id: "salaries" }) }],
         title: () => formatMessage({ id: "salaries" }),
         sidebarTitle: () => formatMessage({ id: "salaries" }),
+      },
+      {
+        id: "transactions",
+        label: "Transactions",
+        description: "Manage transactions",
+        component: <TransactionsPage />,
+        path: "/client/transactions",
+        privileges: true,
+        iconSideNav: <IconTransfer size='1rem' stroke={1.5} />,
+        to: () => "/client/transactions",
+        fullTitle: () => [{ name: formatMessage({ id: "transactions" }) }],
+        title: () => formatMessage({ id: "transactions" }),
+        sidebarTitle: () => formatMessage({ id: "transactions" }),
       },
     ];
     return navbarroutes;

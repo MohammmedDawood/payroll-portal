@@ -41,6 +41,12 @@ const Layout: React.FC = () => {
           path={ROUTES.salaries.path}
           element={<ProtectedRoute>{ROUTES.salaries.component}</ProtectedRoute>}
         />
+        <Route
+          path={ROUTES.transactions.path}
+          element={
+            <ProtectedRoute>{ROUTES.transactions.component}</ProtectedRoute>
+          }
+        />
       </Route>
 
       {/* Unauthorised Layout Routes */}

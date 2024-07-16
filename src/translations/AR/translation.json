@@ -35,5 +35,6 @@
   "delete": "حذف",
   "employee/s_deleted_successfully": "تم حذف الموظف/الموظفين بنجاح",
   "create_employee": "إنشاء موظف",
-  "employee_created_successfully": "تم إنشاء الموظف بنجاح"
+  "employee_created_successfully": "تم إنشاء الموظف بنجاح",
+  "transactions": "سجل العمليات"
 }

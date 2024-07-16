@@ -35,5 +35,6 @@
   "delete": "Delete",
   "employee/s_deleted_successfully": "Employee/s deleted successfully",
   "create_employee": "Create Employee",
-  "employee_created_successfully": "Employee created successfully"
+  "employee_created_successfully": "Employee created successfully",
+  "transactions": "Transactions history"
 }
