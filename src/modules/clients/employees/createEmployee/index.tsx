@@ -39,6 +39,10 @@ function CreateEmployee() {
 
     // functions will be used to validate values at corresponding key
     validate: {
+      staff_id: (value) =>
+        value.length < 2 ? "Staff ID must have at least 2 letters" : null,
+      joining_date: (value) =>
+        value.length < 2 ? "Joining Date must have at least 2 letters" : null,
       name: (value) =>
         value.length < 2 ? "Name must have at least 2 letters" : null,
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
