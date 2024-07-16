@@ -10,6 +10,7 @@ import "@mantine/core/styles.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@mantine/dates/styles.css";
+import "@mantine/charts/styles.css";
 
 function App() {
   /* ----------------------------- Redux Dispatch ---------------------------- */

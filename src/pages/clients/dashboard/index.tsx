@@ -1,5 +1,7 @@
+import Dashboard from "modules/clients/dashboard";
+
 function DashboardPage() {
-  return <div>DashboardPage</div>;
+  return <Dashboard />;
 }
 
 export default DashboardPage;
