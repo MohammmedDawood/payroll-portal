@@ -10,6 +10,8 @@ import DashboardPage from "pages/clients/dashboard";
 
 import EmployeesPage from "pages/clients/employees/employees";
 import CreateEmployeePage from "pages/clients/employees/createEmployee";
+import ViewEmployeePage from "pages/clients/employees/viewEmployee";
+import EditEmployeePage from "pages/clients/employees/editEmployee";
 
 import SalariesPage from "pages/clients/salaries";
 import TransactionsPage from "pages/clients/transactions";
@@ -37,6 +39,8 @@ export interface IRoutes {
   // Employees Module
   employees: IRoute;
   createEmployee: IRoute;
+  viewEmployee: IRoute<{ employeeId: string }>;
+  editEmployee: IRoute<{ employeeId: string }>;
 
   // Salaries Module
   salaries: IRoute;
@@ -80,6 +84,8 @@ export function useRoutes() {
         title: () => formatMessage({ id: "dashboard" }),
         sidebarTitle: () => formatMessage({ id: "dashboard" }),
       },
+
+      // Employees Module
       employees: {
         component: <EmployeesPage />,
         path: "/client/employees",
@@ -103,6 +109,36 @@ export function useRoutes() {
         ],
         title: () => formatMessage({ id: "create_employee" }),
         sidebarTitle: () => formatMessage({ id: "create_employee" }),
+      },
+      viewEmployee: {
+        component: <ViewEmployeePage />,
+        path: "/client/employees/:id",
+        privileges: true,
+        to: (props) => `/client/employees/${props?.employeeId}`,
+        fullTitle: () => [
+          {
+            name: formatMessage({ id: "employees" }),
+            link: "/client/employees",
+          },
+          { name: formatMessage({ id: "view_employee" }) },
+        ],
+        title: () => formatMessage({ id: "view_employee" }),
+        sidebarTitle: () => formatMessage({ id: "view_employee" }),
+      },
+      editEmployee: {
+        component: <EditEmployeePage />,
+        path: "/client/employees/:id/edit",
+        privileges: true,
+        to: (props) => `/client/employees/${props?.employeeId}/edit`,
+        fullTitle: () => [
+          {
+            name: formatMessage({ id: "employees" }),
+            link: "/client/employees",
+          },
+          { name: formatMessage({ id: "edit_employee" }) },
+        ],
+        title: () => formatMessage({ id: "edit_employee" }),
+        sidebarTitle: () => formatMessage({ id: "edit_employee" }),
       },
 
       transactions: {
