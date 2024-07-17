@@ -100,7 +100,7 @@ function Dashboard() {
         </Grid.Col>
       </Grid>
 
-      <Grid.Col span={12}>
+      <>
         <Card shadow='sm' padding='xs' radius='md' withBorder>
           <BarChart
             h={300}
@@ -114,7 +114,7 @@ function Dashboard() {
             ]}
           />
         </Card>
-      </Grid.Col>
+      </>
     </DashboardWrapper>
   );
 }
