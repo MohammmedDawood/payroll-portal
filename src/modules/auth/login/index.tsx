@@ -24,8 +24,8 @@ function Login() {
 
   const form = useForm({
     initialValues: {
-      username: "asd@asd.asd",
-      password: "123456",
+      username: "test@test.test",
+      password: "test123456",
     },
     validate: {
       username: (value) =>
