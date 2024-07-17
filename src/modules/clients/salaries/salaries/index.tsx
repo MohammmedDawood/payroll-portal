@@ -7,6 +7,9 @@
 // •	Users can adjust the additions and deductions columns in the salary table, affecting the total amount of the salary paid.
 // •	During salary processing, users can flag salary payments as end-of-service (gratuity) payments if applicable.
 
+import { Input, TextInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { IconCurrencyDollar } from "@tabler/icons-react";
 import Table from "components/table";
 import { ISalary, SalaryList } from "data";
 
@@ -39,12 +42,50 @@ function Salaries() {
         {
           title: "Additions",
           accessor: "additions",
-          render: (record) => <span>{record.additions}</span>,
+          render: (record) => {
+            // Add input field to allow users to adjust the addition amount
+            const form = useForm({
+              initialValues: {
+                additions: record.additions,
+              },
+            });
+            return (
+              <form>
+                <TextInput
+                  value={0}
+                  leftSectionPointerEvents='none'
+                  leftSection={<IconCurrencyDollar />}
+                  key={form.key("additions")}
+                  size='md'
+                  {...form.getInputProps("additions")}
+                />
+              </form>
+            );
+          },
         },
         {
           title: "Deductions",
           accessor: "deductions",
-          render: (record) => <span>{record.deductions}</span>,
+          render: (record) => {
+            // Add input field to allow users to adjust the deduction amount
+            const form = useForm({
+              initialValues: {
+                deductions: record.deductions,
+              },
+            });
+            return (
+              <form>
+                <TextInput
+                  value={0}
+                  leftSectionPointerEvents='none'
+                  leftSection={<IconCurrencyDollar />}
+                  key={form.key("deductions")}
+                  size='md'
+                  {...form.getInputProps("deductions")}
+                />
+              </form>
+            );
+          },
         },
         {
           title: "Total",
