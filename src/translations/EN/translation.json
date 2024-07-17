@@ -40,5 +40,8 @@
   "transactions": "Transactions history",
   "salary": "Salary",
   "salaries": "Salaries",
-  "proceed_salaries_payment": "Proceed salaries payment"
+  "procees_salaries_payment": "Procees salaries payment",
+  "kindly_note_that_employees_without_specified_period_will_be_excluded_from_the_session_are_you_sure_you_want_to_proceed_with_salaries_payment": "Kindly note that employees without specified period will be excluded from the session. Are you sure you want to proceed with salaries payment?",
+  "salaries_payment_is_under_processing": "Salaries payment is under processing",
+  "confirmation": "Confirmation"
 }

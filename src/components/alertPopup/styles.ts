@@ -42,8 +42,8 @@ export const AlertPopupWrapper = styled.div<{
         gap: 16px;
         p {
           font-family: ${themeExtended.fonts.changa_Bold};
-          font-size: 24px;
-          font-weight: 600;
+          font-size: 2rem;
+          font-weight: 700;
           line-height: 44px;
           letter-spacing: 0em;
         }
@@ -67,8 +67,8 @@ export const AlertPopupWrapper = styled.div<{
         props.$customHeigtht ? props.$customHeigtht : "100px"};
       p {
         font-family: ${themeExtended.fonts.cairo_Regular};
-        font-size: 14px;
-        font-weight: 400;
+        font-size: 1rem;
+        font-weight: 700;
         line-height: 26px;
         letter-spacing: 0em;
         color: ${themeExtended.colours.DarkBlack};

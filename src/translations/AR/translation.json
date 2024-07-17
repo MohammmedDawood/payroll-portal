@@ -40,5 +40,8 @@
   "transactions": "سجل العمليات",
   "salary": "الراتب",
   "salaries": "الرواتب",
-  "proceed_salaries_payment": "إستمرار عملية دفع الرواتب"
+  "procees_salaries_payment": "إستمرار عملية دفع الرواتب",
+  "kindly_note_that_employees_without_specified_period_will_be_excluded_from_the_session_are_you_sure_you_want_to_proceed_with_salaries_payment": "يرجى ملاحظة أن الموظفين بدون فترة محددة سيتم استبعادهم من الجلسة. هل أنت متأكد أنك تريد المتابعة مع دفع الرواتب؟",
+  "salaries_payment_is_under_processing": "جاري معالجة دفع الرواتب",
+  "confirmation": "تأكيد"
 }
