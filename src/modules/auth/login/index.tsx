@@ -14,8 +14,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../../redux/slices/authSlice"; // Adjust the import path as needed
 import { useRoutes } from "../../../hooks/useRoutes";
+import { useIntl } from "react-intl";
 
 function Login() {
+  /* --------------------------------- Hooks --------------------------------- */
+  const { ROUTES } = useRoutes();
+  const navigate = useNavigate();
+  const { formatMessage } = useIntl();
+
   const form = useForm({
     initialValues: {
       username: "asd@asd.asd",
@@ -28,9 +34,6 @@ function Login() {
         value.length < 6 ? "Password must have at least 6 characters" : null,
     },
   });
-  /* --------------------------------- Hooks --------------------------------- */
-  const { ROUTES } = useRoutes();
-  const navigate = useNavigate();
 
   /* ----------------------------- Redux Dispatch ---------------------------- */
   const dispatch = useDispatch();
@@ -45,25 +48,25 @@ function Login() {
   return (
     <Container size={420} my={40}>
       <Paper p='lg' radius='md' withBorder>
-        <Title order={2}>Sign In</Title>
+        <Title order={2}>{formatMessage({ id: "sign_in" })}</Title>
         <Space h='md' />
         <form onSubmit={form.onSubmit(handleSubmit)}>
           <TextInput
-            label='Username'
-            placeholder='Your username'
+            label={formatMessage({ id: "username" })}
+            placeholder={formatMessage({ id: "username" })}
             required
             {...form.getInputProps("username")}
           />
           <Space h='md' />
           <PasswordInput
-            label='Password'
-            placeholder='Your password'
+            label={formatMessage({ id: "password" })}
+            placeholder={formatMessage({ id: "password" })}
             required
             {...form.getInputProps("password")}
           />
           <Space h='md' />
           <Button fullWidth type='submit'>
-            Login
+            {formatMessage({ id: "log_in" })}
           </Button>
         </form>
         <Space h='md' />
@@ -75,7 +78,9 @@ function Login() {
             onClick={() => navigate(ROUTES.signup.to())}
             size='sm'
           >
-            Don't have an account? Register here
+            {formatMessage({
+              id: "dont_have_an_account_register_here",
+            })}
           </Anchor>
         </Group>
       </Paper>

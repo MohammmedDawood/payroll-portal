@@ -14,8 +14,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { register } from "../../../redux/slices/authSlice"; // Adjust the import path as needed
 import { useRoutes } from "../../../hooks/useRoutes";
+import { useIntl } from "react-intl";
 
 function Register() {
+  /* --------------------------------- Hooks --------------------------------- */
+  const { ROUTES } = useRoutes();
+  const navigate = useNavigate();
+  const { formatMessage } = useIntl();
+
   const form = useForm({
     initialValues: {
       username: "",
@@ -34,10 +40,6 @@ function Register() {
     },
   });
 
-  /* --------------------------------- Hooks --------------------------------- */
-  const { ROUTES } = useRoutes();
-  const navigate = useNavigate();
-
   /* ----------------------------- Redux Dispatch ---------------------------- */
   const dispatch = useDispatch();
 
@@ -55,32 +57,38 @@ function Register() {
   return (
     <Container size={420} my={40}>
       <Paper p='lg' radius='md' withBorder>
-        <Title order={2}>Sign Up</Title>
+        <Title order={2}>
+          {formatMessage({
+            id: "sign_up",
+          })}
+        </Title>
         <Space h='md' />
         <form onSubmit={form.onSubmit(handleSubmit)}>
           <TextInput
-            label='Username'
-            placeholder='Your username'
+            label={formatMessage({ id: "username" })}
+            placeholder={formatMessage({ id: "username" })}
             required
             {...form.getInputProps("username")}
           />
           <Space h='md' />
           <TextInput
-            label='Email'
-            placeholder='Your email'
+            label={formatMessage({ id: "email" })}
+            placeholder={formatMessage({ id: "email" })}
             required
             {...form.getInputProps("email")}
           />
           <Space h='md' />
           <PasswordInput
-            label='Password'
-            placeholder='Your password'
+            label={formatMessage({ id: "password" })}
+            placeholder={formatMessage({ id: "password" })}
             required
             {...form.getInputProps("password")}
           />
           <Space h='md' />
           <Button fullWidth type='submit'>
-            Register
+            {formatMessage({
+              id: "register",
+            })}
           </Button>
         </form>
         <Space h='md' />
@@ -92,7 +100,9 @@ function Register() {
             onClick={() => navigate(ROUTES.login.to())}
             size='sm'
           >
-            Already have an account? Login
+            {formatMessage({
+              id: "already_have_an_account",
+            })}
           </Anchor>
         </Group>
       </Paper>

@@ -2,8 +2,10 @@ import { AppShell, Group } from "@mantine/core";
 import { Outlet } from "react-router-dom";
 import ActionThemeToggle from "../ActionThemeToggle";
 import ActionLanguageToggle from "../ActionLanguageToggle";
+import { useIntl } from "react-intl";
 
 function MainLayout() {
+  const { formatMessage } = useIntl();
   return (
     <AppShell header={{ height: 60 }} footer={{ height: 60 }} padding='md'>
       <AppShell.Header>
@@ -14,7 +16,7 @@ function MainLayout() {
             gap='md'
             style={{ fontSize: "1.5rem", fontWeight: "bold" }}
           >
-            Payroll Assessment
+            {formatMessage({ id: "payroll_system" })}
           </Group>
           <Group align='center' justify='center' gap='md'>
             <ActionThemeToggle />
