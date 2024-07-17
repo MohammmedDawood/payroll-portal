@@ -134,7 +134,6 @@ export const EmployeesList: IEmployee[] = [
   },
 ];
 
-// •	A payment history log is accessible, providing details of all past payments made through the portal.
 export interface ITransaction {
   id: number;
   transaction_id: string;
@@ -248,5 +247,130 @@ export const TransactionList: ITransaction[] = [
     type: "Salary",
     reference: "Salary Payment",
     staff_id: "STF-001",
+  },
+];
+
+export interface ISalary {
+  id: number;
+  staff_id: string;
+  name: string;
+  basic_salary: string;
+  salary_allowance: string;
+  additions: string;
+  deductions: string;
+  total: string;
+  end_of_service: boolean;
+}
+
+export const SalaryList: ISalary[] = [
+  {
+    id: 1,
+    staff_id: "STF-001",
+    name: "John Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: false,
+  },
+  {
+    id: 2,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: true,
+  },
+  {
+    id: 3,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: false,
+  },
+  {
+    id: 4,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: true,
+  },
+  {
+    id: 5,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: false,
+  },
+  {
+    id: 6,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: false,
+  },
+  {
+    id: 7,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19 500",
+    end_of_service: true,
+  },
+  {
+    id: 8,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: false,
+  },
+  {
+    id: 9,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: false,
+  },
+  {
+    id: 10,
+    staff_id: "STF-001",
+    name: "Jane Doe",
+    basic_salary: "$17,500",
+    salary_allowance: "$2,000",
+    additions: "$0",
+    deductions: "$0",
+    total: "$19,500",
+    end_of_service: false,
   },
 ];

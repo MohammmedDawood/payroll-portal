@@ -13,7 +13,7 @@ import CreateEmployeePage from "pages/clients/employees/createEmployee";
 import ViewEmployeePage from "pages/clients/employees/viewEmployee";
 import EditEmployeePage from "pages/clients/employees/editEmployee";
 
-import SalariesPage from "pages/clients/salaries";
+import SalariesPage from "pages/clients/salaries/salaries";
 import TransactionsPage from "pages/clients/transactions";
 
 export interface IRoute<T = any> {

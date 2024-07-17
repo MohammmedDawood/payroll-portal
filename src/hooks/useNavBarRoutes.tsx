@@ -4,7 +4,7 @@ import { useIntl } from "react-intl";
 // Clients Module
 import DashboardPage from "pages/clients/dashboard";
 import EmployeesPage from "pages/clients/employees/employees";
-import SalariesPage from "pages/clients/salaries";
+import SalariesPage from "pages/clients/salaries/salaries";
 import TransactionsPage from "pages/clients/transactions";
 import {
   IconCashBanknote,
