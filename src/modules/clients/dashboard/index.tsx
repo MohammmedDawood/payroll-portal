@@ -4,6 +4,7 @@ import { IconWallet } from "@tabler/icons-react";
 import { useRoutes } from "hooks/useRoutes";
 import { useIntl } from "react-intl";
 import { useNavigate } from "react-router-dom";
+import { DashboardWrapper } from "./styles";
 
 export const data = [
   { month: "January", WPS: 1200, Allownces: 900, Non_WPS: 200 },
@@ -26,84 +27,95 @@ function Dashboard() {
   const { formatMessage } = useIntl();
 
   return (
-    <Grid>
-      <Grid.Col span={12}>
-        <Grid>
-          <Grid.Col span={3}>
-            <Card shadow='sm' padding='xs' radius='md' withBorder>
-              <Group justify='space-between' my='md' mb='xs'>
-                <Group justify='center' align='center' w={"100%"}>
-                  <Badge>
-                    {formatMessage({
-                      id: "available_balance",
-                    })}
-                  </Badge>
-                </Group>
-                <Group justify='space-between' mb='xs'>
-                  <Avatar radius='md'>
-                    <IconWallet size='1.5rem' />
-                  </Avatar>
-                  <Text size='xl' fw={700}>
-                    {" "}
-                    516.000 AED
-                  </Text>
-                </Group>
-                <Group justify='center' align='center' w={"100%"}>
-                  <Button
-                    variant='outline'
-                    size='xs'
-                    radius='md'
-                    onClick={() => {
-                      console.log("view_transactions_history");
-                      navigate(ROUTES.transactions.to());
-                    }}
-                  >
-                    {formatMessage({
-                      id: "view_transactions_history",
-                    })}
-                  </Button>
-                </Group>
-              </Group>
-            </Card>
-          </Grid.Col>
-
-          <Grid.Col span={9}>
-            <Card shadow='sm' padding='xs' radius='md' withBorder>
-              <Grid>
-                <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
-                  <DonutChart data={gaugeData} startAngle={180} endAngle={0} />
-                </Grid.Col>
-                <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
-                  <DonutChart data={gaugeData} startAngle={180} endAngle={0} />
-                </Grid.Col>
-                <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
-                  <DonutChart data={gaugeData} startAngle={180} endAngle={0} />
-                </Grid.Col>
-                <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
-                  <DonutChart data={gaugeData} startAngle={180} endAngle={0} />
-                </Grid.Col>
-              </Grid>
-            </Card>
-          </Grid.Col>
-        </Grid>
-
-        <Grid.Col span={12}>
+    <DashboardWrapper>
+      <Grid>
+        <Grid.Col
+          span={{
+            base: 12,
+            md: 3,
+            sm: 12,
+          }}
+        >
           <Card shadow='sm' padding='xs' radius='md' withBorder>
-            <BarChart
-              h={300}
-              data={data}
-              dataKey='month'
-              withLegend
-              series={[
-                { name: "WPS", color: "violet.6" },
-                { name: "Allownces", color: "blue.6" },
-                { name: "Non_WPS", color: "teal.6" },
-              ]}
-            />
+            <Group justify='space-between' my='md' mb='xs'>
+              <Group justify='center' align='center' w={"100%"}>
+                <Badge>
+                  {formatMessage({
+                    id: "available_balance",
+                  })}
+                </Badge>
+              </Group>
+              <Group justify='space-between' mb='xs'>
+                <Avatar radius='md'>
+                  <IconWallet size='1.5rem' />
+                </Avatar>
+                <Text size='xl' fw={700}>
+                  {" "}
+                  516.000 AED
+                </Text>
+              </Group>
+              <Group justify='center' align='center' w={"100%"}>
+                <Button
+                  variant='outline'
+                  size='xs'
+                  radius='md'
+                  onClick={() => {
+                    console.log("view_transactions_history");
+                    navigate(ROUTES.transactions.to());
+                  }}
+                >
+                  {formatMessage({
+                    id: "view_transactions_history",
+                  })}
+                </Button>
+              </Group>
+            </Group>
           </Card>
         </Grid.Col>
+
+        <Grid.Col
+          span={{
+            base: 12,
+            md: 9,
+            sm: 12,
+          }}
+          className='containerCenter'
+        >
+          <Card shadow='sm' padding='xs' radius='md' withBorder>
+            <Grid>
+              <Grid.Col span={{ base: 12, md: 3, lg: 3 }}>
+                <DonutChart data={gaugeData} startAngle={180} endAngle={0} />
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 3, lg: 3 }}>
+                <DonutChart data={gaugeData} startAngle={180} endAngle={0} />
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 3, lg: 3 }}>
+                <DonutChart data={gaugeData} startAngle={180} endAngle={0} />
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 3, lg: 3 }}>
+                <DonutChart data={gaugeData} startAngle={180} endAngle={0} />
+              </Grid.Col>
+            </Grid>
+          </Card>
+        </Grid.Col>
+      </Grid>
+
+      <Grid.Col span={12}>
+        <Card shadow='sm' padding='xs' radius='md' withBorder>
+          <BarChart
+            h={300}
+            data={data}
+            dataKey='month'
+            withLegend
+            series={[
+              { name: "WPS", color: "violet.6" },
+              { name: "Allownces", color: "blue.6" },
+              { name: "Non_WPS", color: "teal.6" },
+            ]}
+          />
+        </Card>
       </Grid.Col>
-    </Grid>
+    </DashboardWrapper>
   );
 }
 
