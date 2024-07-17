@@ -64,7 +64,7 @@ function CreateEmployee() {
   };
   return (
     <form onSubmit={form.onSubmit(onSubmit)}>
-      <Box p='auto' m='lg' style={{ background: "white" }}>
+      <Box p='auto' m='lg'>
         <Grid>
           <Grid.Col span={{ base: 12, md: 6 }}>
             <TextInput

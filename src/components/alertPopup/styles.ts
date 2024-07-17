@@ -71,7 +71,6 @@ export const AlertPopupWrapper = styled.div<{
         font-weight: 700;
         line-height: 26px;
         letter-spacing: 0em;
-        color: ${themeExtended.colours.DarkBlack};
         span {
           font-weight: 700;
         }

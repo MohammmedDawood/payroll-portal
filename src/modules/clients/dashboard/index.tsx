@@ -45,7 +45,7 @@ function Dashboard() {
                   })}
                 </Badge>
               </Group>
-              <Group justify='space-between' mb='xs'>
+              <Group justify='space-between' align='center' m='sm'>
                 <Avatar radius='md'>
                   <IconWallet size='1.5rem' />
                 </Avatar>
