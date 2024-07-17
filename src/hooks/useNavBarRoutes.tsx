@@ -76,7 +76,7 @@ export function useNavBarRoutes() {
       {
         id: "transactions",
         label: "Transactions",
-        description: "Manage transactions",
+        description: "View transactions history",
         component: <TransactionsPage />,
         path: "/client/transactions",
         privileges: true,
