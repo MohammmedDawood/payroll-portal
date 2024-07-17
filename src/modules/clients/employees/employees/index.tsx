@@ -1,5 +1,5 @@
 import { ActionIcon, Button, Group, Tooltip } from "@mantine/core";
-import Table from "../../../../components/table";
+import Table from "components/table";
 import { IconEdit, IconEye, IconTrash } from "@tabler/icons-react";
 import { useIntl } from "react-intl";
 import { EmployeesWrapper } from "./styles";
@@ -9,141 +9,8 @@ import AlertPopup from "components/alertPopup";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useRoutes } from "hooks/useRoutes";
+import { EmployeesList, IEmployee } from "data";
 
-export interface IEmployee {
-  id: number;
-  staff_id: string;
-  joining_date: string;
-  name: string;
-  email: string;
-  phone: string;
-  role: string[];
-  basic_salary: string;
-  salary_allowance: string;
-  status: string;
-}
-const EmployeesList: IEmployee[] = [
-  {
-    id: 1,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "John Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Admin"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Active",
-  },
-  {
-    id: 2,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-  {
-    id: 3,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-  {
-    id: 4,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-  {
-    id: 5,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-  {
-    id: 6,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-  {
-    id: 7,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-  {
-    id: 8,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-  {
-    id: 9,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-  {
-    id: 10,
-    staff_id: "STF-001",
-    joining_date: "17-05-2024",
-    name: "Jane Doe",
-    email: "jon@gmail.com",
-    phone: "08012345678",
-    role: ["Employee"],
-    basic_salary: "$17,500",
-    salary_allowance: "$2,000",
-    status: "Inactive",
-  },
-];
 function Employees() {
   const [showDeleteAlert, setShowDeleteAlert] = useState<boolean>(false);
   const navigate = useNavigate();
