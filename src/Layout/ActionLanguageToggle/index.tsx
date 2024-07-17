@@ -1,6 +1,6 @@
 // import React from "react";
 
-import { ActionIcon, Group, Tooltip } from "@mantine/core";
+import { ActionIcon, Group, Tooltip, useDirection } from "@mantine/core";
 import FlagAR from "assets/images/svg/FlagAR.svg?react";
 import FlagEN from "assets/images/svg/FlagEN.svg?react";
 import { useLayoutEffect } from "react";
@@ -11,7 +11,7 @@ import { useIntl } from "react-intl";
 
 function ActionLanguageToggle() {
   const { formatMessage } = useIntl();
-
+  const { toggleDirection } = useDirection();
   /* ----------------------------- Redux Dispatch ---------------------------- */
   const settings = useSelector((state: RootState) => state.settings);
   const dispatch = useDispatch();
@@ -29,11 +29,12 @@ function ActionLanguageToggle() {
     <Group justify='center'>
       <Tooltip label={formatMessage({ id: "lang" })}>
         <ActionIcon
-          onClick={() =>
+          onClick={() => {
             dispatch(
               toggleLang({ lang: settings?.lang === "en" ? "ar" : "en" })
-            )
-          }
+            );
+            toggleDirection();
+          }}
           variant='default'
           size='xl'
           aria-label='Toggle language scheme'

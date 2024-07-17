@@ -66,40 +66,40 @@ function Employees() {
         highlightOnHover
         columns={[
           {
-            title: "Staff ID",
+            title: formatMessage({ id: "staff_id" }),
             accessor: "staff_id",
             render: (record) => <span>{record.staff_id}</span>,
           },
           {
-            title: "Name",
+            title: formatMessage({ id: "name" }),
             accessor: "name",
             render: (record) => <span>{record.name}</span>,
           },
           {
-            title: "Joining Date",
+            title: formatMessage({ id: "joining_date" }),
             accessor: "joining_date",
             render: (record) => <span>{record.joining_date}</span>,
           },
           {
-            title: "Email",
+            title: formatMessage({ id: "email" }),
             accessor: "email",
             render: (record) => <span>{record.email}</span>,
           },
 
           {
-            title: "Basic Salary",
+            title: formatMessage({ id: "basic_salary" }),
             accessor: "basic_salary",
             render: (record) => <span>{record.basic_salary}</span>,
           },
           {
-            title: "Salary Allowance",
+            title: formatMessage({ id: "salary_allowance" }),
             accessor: "salary_allowance",
             render: (record) => <span>{record.salary_allowance}</span>,
           },
 
           {
             accessor: "actions",
-            title: "Actions",
+            title: formatMessage({ id: "actions" }),
             render: (record) => (
               <Group>
                 {

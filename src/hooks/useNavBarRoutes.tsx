@@ -36,8 +36,8 @@ export function useNavBarRoutes() {
       // Clients Module
       {
         id: "dashboard",
-        label: "Dashboard",
-        description: "Welcone page",
+        label: formatMessage({ id: "dashboard" }),
+        description: formatMessage({ id: "view_your_dashboard" }),
         component: <DashboardPage />,
         path: "/client/dashboard",
         privileges: true,
@@ -49,8 +49,8 @@ export function useNavBarRoutes() {
       },
       {
         id: "employees",
-        label: "Employees",
-        description: "Manage your employees",
+        label: formatMessage({ id: "employees" }),
+        description: formatMessage({ id: "manage_your_employees" }),
         component: <EmployeesPage />,
         path: "/client/employees",
         privileges: true,
@@ -62,8 +62,8 @@ export function useNavBarRoutes() {
       },
       {
         id: "salaries",
-        label: "Salaries",
-        description: "Manage salaries",
+        label: formatMessage({ id: "salaries" }),
+        description: formatMessage({ id: "manage_salaries" }),
         component: <SalariesPage />,
         path: "/client/salaries",
         privileges: true,
@@ -75,8 +75,8 @@ export function useNavBarRoutes() {
       },
       {
         id: "transactions",
-        label: "Transactions",
-        description: "View transactions history",
+        label: formatMessage({ id: "transactions" }),
+        description: formatMessage({ id: "view_transactions_history" }),
         component: <TransactionsPage />,
         path: "/client/transactions",
         privileges: true,

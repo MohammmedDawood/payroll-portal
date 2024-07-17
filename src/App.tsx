@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { MantineProvider } from "@mantine/core";
+import { DirectionProvider, MantineProvider } from "@mantine/core";
 import Layout from "routes";
 import { RootState } from "redux/store"; // Adjust the import path if necessary
 import { theme } from "./styles/theme";
@@ -34,12 +34,14 @@ function App() {
           pauseOnHover
           theme='colored'
         />
-        <MantineProvider
-          theme={theme}
-          defaultColorScheme={settings?.theme === "light" ? "light" : "dark"}
-        >
-          <Layout />
-        </MantineProvider>
+        <DirectionProvider>
+          <MantineProvider
+            theme={theme}
+            defaultColorScheme={settings?.theme === "light" ? "light" : "dark"}
+          >
+            <Layout />
+          </MantineProvider>
+        </DirectionProvider>
       </IntlProvider>
     </>
   );

@@ -2,8 +2,11 @@ import { TransactiionsWrapper } from "./styles";
 import Table from "components/table";
 import { ITransaction, TransactionList } from "data";
 import Header from "./components/sectionHeader";
+import { useIntl } from "react-intl";
 
 function Transactions() {
+  const { formatMessage } = useIntl();
+
   return (
     <TransactiionsWrapper>
       <Header />
@@ -12,37 +15,37 @@ function Transactions() {
         highlightOnHover
         columns={[
           {
-            title: "Transaction ID",
+            title: formatMessage({ id: "transaction_id" }),
             accessor: "transaction_id",
             render: (record) => <span>{record.transaction_id}</span>,
           },
           {
-            title: "Staff ID",
+            title: formatMessage({ id: "staff_id" }),
             accessor: "staff_id",
             render: (record) => <span>{record.staff_id}</span>,
           },
           {
-            title: "Transaction Date",
+            title: formatMessage({ id: "transaction_date" }),
             accessor: "transaction_date",
             render: (record) => <span>{record.date}</span>,
           },
           {
-            title: "Amount",
+            title: formatMessage({ id: "amount" }),
             accessor: "amount",
             render: (record) => <span>{record.amount}</span>,
           },
           {
-            title: "Status",
+            title: formatMessage({ id: "status" }),
             accessor: "status",
             render: (record) => <span>{record.status}</span>,
           },
           {
-            title: "Reference",
+            title: formatMessage({ id: "transaction_details" }),
             accessor: "reference",
             render: (record) => <span>{record.reference}</span>,
           },
           {
-            title: "Transaction Type",
+            title: formatMessage({ id: "transaction_type" }),
             accessor: "transaction_type",
             render: (record) => <span>{record.type}</span>,
           },

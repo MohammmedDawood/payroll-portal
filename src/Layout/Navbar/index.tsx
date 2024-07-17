@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useRoutes } from "../../hooks/useRoutes";
 import { logout } from "../../redux/slices/authSlice";
 import { NavBarWrapper } from "./styles";
+import { useIntl } from "react-intl";
 
 export interface NavbarProps {
   opened: boolean;
@@ -24,6 +25,7 @@ export default function Navbar({ opened, toggle }: NavbarProps) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { ROUTES } = useRoutes();
+  const { formatMessage } = useIntl();
 
   const items = NAVBARROUTES.map((item) => (
     <NavLink
@@ -59,7 +61,7 @@ export default function Navbar({ opened, toggle }: NavbarProps) {
           navigate(ROUTES.login.to());
         }}
       >
-        Logout
+        {formatMessage({ id: "logout" })}
       </Button>
     </NavBarWrapper>
   );

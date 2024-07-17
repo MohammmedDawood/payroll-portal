@@ -2,6 +2,7 @@ import { BarChart, DonutChart } from "@mantine/charts";
 import { Card, Grid, Group, Badge, Avatar, Text, Button } from "@mantine/core";
 import { IconWallet } from "@tabler/icons-react";
 import { useRoutes } from "hooks/useRoutes";
+import { useIntl } from "react-intl";
 import { useNavigate } from "react-router-dom";
 
 export const data = [
@@ -22,6 +23,7 @@ export const gaugeData = [
 function Dashboard() {
   const navigate = useNavigate();
   const { ROUTES } = useRoutes();
+  const { formatMessage } = useIntl();
 
   return (
     <Grid>
@@ -31,7 +33,11 @@ function Dashboard() {
             <Card shadow='sm' padding='xs' radius='md' withBorder>
               <Group justify='space-between' my='md' mb='xs'>
                 <Group justify='center' align='center' w={"100%"}>
-                  <Badge>Available Balance</Badge>
+                  <Badge>
+                    {formatMessage({
+                      id: "available_balance",
+                    })}
+                  </Badge>
                 </Group>
                 <Group justify='space-between' mb='xs'>
                   <Avatar radius='md'>
@@ -52,7 +58,9 @@ function Dashboard() {
                       navigate(ROUTES.transactions.to());
                     }}
                   >
-                    view transactions history
+                    {formatMessage({
+                      id: "view_transactions_history",
+                    })}
                   </Button>
                 </Group>
               </Group>

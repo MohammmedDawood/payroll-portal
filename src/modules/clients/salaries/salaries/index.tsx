@@ -1,12 +1,3 @@
-// •	In the "Salaries" section, users can process salaries for their employees.
-// •	A salary table displays a list of employees and their corresponding salary details.
-// •	Users must specify the salary month and year for each employee salary processing.
-// •	Employees without specified month and year details will be excluded from the session.
-// •	The salary processing table shows the total salary amount to be paid for each employee.
-// •	Users cannot modify the basic salary and allowances columns in the salary processing table and their values are according to what the employee record has.
-// •	Users can adjust the additions and deductions columns in the salary table, affecting the total amount of the salary paid.
-// •	During salary processing, users can flag salary payments as end-of-service (gratuity) payments if applicable.
-
 import { TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { IconCurrencyDollar } from "@tabler/icons-react";
@@ -15,8 +6,10 @@ import { ISalary, SalaryList } from "data";
 import { MonthPickerInput } from "@mantine/dates";
 import { SalariesWrapper } from "./styles";
 import Header from "./components/sectionHeader";
+import { useIntl } from "react-intl";
 
 function Salaries() {
+  const { formatMessage } = useIntl();
   return (
     <SalariesWrapper>
       <Header />
@@ -25,7 +18,7 @@ function Salaries() {
         highlightOnHover
         columns={[
           {
-            title: "Period",
+            title: formatMessage({ id: "salary_period" }),
             accessor: "period",
             render: (record) => {
               // Add input field to allow users to select the month
@@ -40,27 +33,27 @@ function Salaries() {
             },
           },
           {
-            title: "Staff ID",
+            title: formatMessage({ id: "staff_id" }),
             accessor: "staff_id",
             render: (record) => <span>{record.staff_id}</span>,
           },
           {
-            title: "Name",
+            title: formatMessage({ id: "name" }),
             accessor: "name",
             render: (record) => <span>{record.name}</span>,
           },
           {
-            title: "Basic Salary",
+            title: formatMessage({ id: "basic_salary" }),
             accessor: "basic_salary",
             render: (record) => <span>{record.basic_salary}</span>,
           },
           {
-            title: "Salary Allowance",
+            title: formatMessage({ id: "salary_allowance" }),
             accessor: "salary_allowance",
             render: (record) => <span>{record.salary_allowance}</span>,
           },
           {
-            title: "Additions",
+            title: formatMessage({ id: "salary_additions" }),
             accessor: "additions",
             render: (record) => {
               // Add input field to allow users to adjust the addition amount
@@ -85,7 +78,7 @@ function Salaries() {
             },
           },
           {
-            title: "Deductions",
+            title: formatMessage({ id: "salary_deductions" }),
             accessor: "deductions",
             render: (record) => {
               // Add input field to allow users to adjust the deduction amount
@@ -110,12 +103,12 @@ function Salaries() {
             },
           },
           {
-            title: "Total",
+            title: formatMessage({ id: "total_salary" }),
             accessor: "total",
             render: (record) => <span>{record.total}</span>,
           },
           {
-            title: "End of Service (gratuity)",
+            title: formatMessage({ id: "end_of_service_(gratuity)" }),
             accessor: "end_of_service",
             render: (record) => (
               <span>{record.end_of_service ? "Yes" : "No"}</span>
