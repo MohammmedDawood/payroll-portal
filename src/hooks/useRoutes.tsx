@@ -15,6 +15,7 @@ import EditEmployeePage from "pages/clients/employees/editEmployee";
 
 import SalariesPage from "pages/clients/salaries/salaries";
 import TransactionsPage from "pages/clients/transactions";
+import { IconCashBanknote, IconTransfer, IconUsers } from "@tabler/icons-react";
 
 export interface IRoute<T = any> {
   component: JSX.Element;
@@ -90,6 +91,8 @@ export function useRoutes() {
         component: <EmployeesPage />,
         path: "/client/employees",
         privileges: true,
+        icon: <IconUsers />,
+        iconSideNav: <IconUsers />,
         to: () => "/client/employees",
         fullTitle: () => [{ name: formatMessage({ id: "employees" }) }],
         title: () => formatMessage({ id: "employees" }),
@@ -141,24 +144,28 @@ export function useRoutes() {
         sidebarTitle: () => formatMessage({ id: "edit_employee" }),
       },
 
-      transactions: {
-        component: <TransactionsPage />,
-        path: "/client/transactions",
-        privileges: true,
-        to: () => "/client/transactions",
-        fullTitle: () => [{ name: formatMessage({ id: "transactions" }) }],
-        title: () => formatMessage({ id: "transactions" }),
-        sidebarTitle: () => formatMessage({ id: "transactions" }),
-      },
-
       salaries: {
         component: <SalariesPage />,
         path: "/client/salaries",
         privileges: true,
+        icon: <IconCashBanknote />,
+        iconSideNav: <IconCashBanknote />,
         to: () => "/client/salaries",
         fullTitle: () => [{ name: formatMessage({ id: "salaries" }) }],
         title: () => formatMessage({ id: "salaries" }),
         sidebarTitle: () => formatMessage({ id: "salaries" }),
+      },
+
+      transactions: {
+        component: <TransactionsPage />,
+        path: "/client/transactions",
+        privileges: true,
+        icon: <IconTransfer />,
+        iconSideNav: <IconTransfer />,
+        to: () => "/client/transactions",
+        fullTitle: () => [{ name: formatMessage({ id: "transactions" }) }],
+        title: () => formatMessage({ id: "transactions" }),
+        sidebarTitle: () => formatMessage({ id: "transactions" }),
       },
     };
     return routes;

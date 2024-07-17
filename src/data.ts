@@ -252,6 +252,7 @@ export const TransactionList: ITransaction[] = [
 
 export interface ISalary {
   id: number;
+  period?: Date | null;
   staff_id: string;
   name: string;
   basic_salary: string;
@@ -265,6 +266,7 @@ export interface ISalary {
 export const SalaryList: ISalary[] = [
   {
     id: 1,
+    period: new Date("2023-12-31T20:00:00.000Z"),
     staff_id: "STF-001",
     name: "John Doe",
     basic_salary: "$17,500",
@@ -287,6 +289,7 @@ export const SalaryList: ISalary[] = [
   },
   {
     id: 3,
+    period: new Date("2024-12-31T20:00:00.000Z"),
     staff_id: "STF-001",
     name: "Jane Doe",
     basic_salary: "$17,500",
@@ -298,6 +301,7 @@ export const SalaryList: ISalary[] = [
   },
   {
     id: 4,
+    period: new Date("2024-12-31T20:00:00.000Z"),
     staff_id: "STF-001",
     name: "Jane Doe",
     basic_salary: "$17,500",
@@ -309,6 +313,7 @@ export const SalaryList: ISalary[] = [
   },
   {
     id: 5,
+    period: new Date("2024-12-31T20:00:00.000Z"),
     staff_id: "STF-001",
     name: "Jane Doe",
     basic_salary: "$17,500",
