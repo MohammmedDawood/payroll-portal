@@ -37,5 +37,8 @@
   "create_employee": "إنشاء موظف",
   "employee_created_successfully": "تم إنشاء الموظف بنجاح",
   "employee_updated_successfully": "تم تحديث الموظف بنجاح",
-  "transactions": "سجل العمليات"
+  "transactions": "سجل العمليات",
+  "salary": "الراتب",
+  "salaries": "الرواتب",
+  "proceed_salaries_payment": "إستمرار عملية دفع الرواتب"
 }

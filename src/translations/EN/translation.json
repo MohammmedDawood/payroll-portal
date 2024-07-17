@@ -37,5 +37,8 @@
   "create_employee": "Create Employee",
   "employee_created_successfully": "Employee created successfully",
   "employee_updated_successfully": "Employee updated successfully",
-  "transactions": "Transactions history"
+  "transactions": "Transactions history",
+  "salary": "Salary",
+  "salaries": "Salaries",
+  "proceed_salaries_payment": "Proceed salaries payment"
 }

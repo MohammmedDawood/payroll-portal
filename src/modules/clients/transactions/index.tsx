@@ -1,10 +1,12 @@
 import { TransactiionsWrapper } from "./styles";
 import Table from "components/table";
 import { ITransaction, TransactionList } from "data";
+import Header from "./components/sectionHeader";
 
 function Transactions() {
   return (
     <TransactiionsWrapper>
+      <Header />
       <Table
         records={TransactionList as ITransaction[]}
         highlightOnHover
