@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import NotFoundPage from "../pages/errors/NotFound";
+import NotFoundPage from "../pages/errors/notfound";
 import LayoutUnauthorised from "../Layout/LayoutUnauthorised";
 import MainLayoutAuthorised from "../Layout/MainLayoutAuthorised";
 import ProtectedRoute from "../modules/auth/ProtectedRoute";
